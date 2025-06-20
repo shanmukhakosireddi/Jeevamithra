@@ -13,6 +13,7 @@ import { ChatInput } from './ChatInput';
 import { AgricultureNewsSection } from './AgricultureNewsSection';
 import { WeatherFarmerSection } from './WeatherFarmerSection';
 import { FarmMateRentals } from './FarmMateRentals';
+import { VerticalHealthInputMode } from './VerticalHealthInputMode';
 
 type AssistantMode = 'general' | 'farming' | 'health' | 'news' | 'schemes';
 
@@ -112,7 +113,7 @@ export const ModeInputPage: React.FC<ModeInputPageProps> = ({
   };
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br ${modeInfo.bgGradient} flex flex-col`}>
+    <div className={`min-h-screen bg-gradient-to-br ${modeInfo.bgGradient} flex flex-col relative`}>
       {/* Header */}
       <header className="bg-white/90 backdrop-blur-sm shadow-sm border-b border-gray-200/50 px-4 py-3">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
@@ -261,6 +262,11 @@ export const ModeInputPage: React.FC<ModeInputPageProps> = ({
                 </span>
               </div>
             </div>
+          )}
+
+          {/* Health Input Mode - Only show for health mode */}
+          {mode === 'health' && !isLoading && (
+            <VerticalHealthInputMode teluguMode={teluguMode} />
           )}
 
           {/* Farming Mode Specific Sections */}

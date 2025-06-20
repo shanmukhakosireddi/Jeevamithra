@@ -184,9 +184,10 @@ function App() {
   };
 
   // Navigate directly to chat with mode
-  const navigateToChat = (mode: AssistantMode, userMessage?: string) => {
+  const navigateToChat = async (mode: AssistantMode, userMessage?: string) => {
     setAssistantMode(mode);
     setMessages([]); // Clear existing messages
+    
     if (userMessage) {
       setPendingUserMessage(userMessage);
     }
